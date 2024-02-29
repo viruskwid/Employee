@@ -1,0 +1,42 @@
+<div class="row">
+    <div style="height: 92vh; width: fit-content; background-color: #C7C8CC;" class="col-lg-2 d-flex  flex-column  p-5 shadow ">
+     <a style="text-decoration: none; color: black;" class="fw-bolder mt-2" routerLink="/dashboard">Home</a>
+     <hr>
+     <a style="text-decoration: none; color: black;" class="fw-bolder mt-2" routerLink="/users">Users</a>
+    </div>
+    <div class="col-lg-10">
+        <div style="height: 80%;" class="w-100 d-flex align-items-center  justify-content-center flex-column ">
+            <h4>Add Users</h4>
+            <form style="background-color: #e0e1e2;" class="border rounded p-3 w-50 mt-5 p-5 shadow" #addUserForm="ngForm">
+                <div class="form-floating mb-3 ">
+                    <label class="text-black " for="floatingInputuser">Emp ID</label>
+                    <input [(ngModel)]="user.empId" type="text" class="form-control shadow " id="floatingInputuser"  name="empId"  required #empId="ngModel">
+                </div>
+                <div *ngIf="empId.invalid && empId.touched" class="text-danger ">*Invalid Emplpoyee Id</div>
+                <div class="form-floating mb-3 ">
+                    <label class="text-black " for="floatingInputuser">Username</label>
+                    <input [(ngModel)]="user.name" type="text" class="form-control shadow " id="floatingInputuser"  name="name"  required #name="ngModel">
+                </div>
+                <div *ngIf="name.invalid && name.touched" class="text-danger ">*Invalid Emplpoyee Name</div>
+
+                <div class="form-floating mb-3 ">
+                    <input [(ngModel)]="user.email" type="email" class="form-control shadow " id="floatingInputemail"  name="email" email required #email="ngModel">
+                    <label for="floatingInputemail">Email</label>
+                </div>
+                <div *ngIf="email.invalid && email.touched" class="text-danger ">*Invalid Emplpoyee Email</div>
+                <div class="form-floating mb-3">
+                    <select [(ngModel)]="user.status" class="form-control shadow " name="status" id="" required #status="ngModel">
+                        <option disabled selected hidden></option>
+                        <option value="1">Active</option>
+                        <option value="2">InActive</option>
+                    </select>
+                    <label for="Status" class="fw-bolder ">Status</label>
+                </div>
+                <div class="text-center">
+                    <button (click)="cancel()" class="btn btn-warning text-light ">Cancel</button>
+                    <button (click)="addUser()" type="submit" [disabled]="addUserForm.invalid && addUserForm.touched" class="btn btn-success  text-light ms-5">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
