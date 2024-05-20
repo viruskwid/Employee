@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserSchema } from '../Models/userSchema';
 import { ApiService } from '../services/api.service';
 import { ToastrService } from 'ngx-toastr';
-import jsPDF from 'jspdf'
-import autoTable from 'jspdf-autotable'
+
 
 @Component({
   selector: 'app-users-list',
@@ -36,22 +35,7 @@ export class UsersListComponent implements OnInit {
       this.toaster.success("User Deleted")
     })
   }
-  generatePDF(){
-    let pdf = new jsPDF()
-    let head = [['EmpId','Username','Email','Status']]
-    let body:any=[]
-    this.allUsers.forEach((item:any)=>{
-      if (item.id !=1) {
-        body.push([item.empId,item.name,item.email,item.status])
 
-      }
-    })
-    pdf.setFontSize(16)
-    pdf.text('All Users List',10,10)
-    autoTable(pdf,{head,body})
-    pdf.output('dataurlnewwindow')
-    pdf.save('allusers.pdf')
-  }
   sortById(){
     this.allUsers.sort((user1:any,user2:any)=>user1.empId.localeCompare(user2.empId))
   }
