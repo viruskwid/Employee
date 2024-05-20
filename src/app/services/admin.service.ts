@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
- SERVER_URL:string="https://employeeserver-wg0f.onrender.com"
+ SERVER_URL:string="https://employeeserve-7o5z.onrender.com"
   constructor(private http:HttpClient) { }
 
   getAdminDetails(){

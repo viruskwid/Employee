@@ -7,7 +7,7 @@ import { UserSchema } from '../Models/userSchema';
 })
 export class ApiService {
 
-  SERVER_URL ="https://employeeserver-wg0f.onrender.com"
+  SERVER_URL ="https://employeeserve-7o5z.onrender.com"
 
   constructor(private http:HttpClient){}
   addUserAPI(user:UserSchema){
